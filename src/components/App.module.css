@@ -1,0 +1,23 @@
+.container {
+    background-color: bisque;
+    width: 400px;
+    padding: 30px 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    /* height: 800px; */
+   
+
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.contacts {
+    display: flex;
+    justify-content: center;
+}
