@@ -5,6 +5,8 @@ import ContactForm from './ContactForm/ContactForm';
 import css from './App.module.css';
 import { useSelector } from 'react-redux';
 import { SelectError } from 'redux/selectors';
+import { AuthPage } from './AuthPage/AuthPage';
+import { LoginPage } from './LoginPage/LoginPage';
 
 
 const App = () => {
@@ -21,8 +23,11 @@ const App = () => {
     <Filter />
     
     <ContactList />
-    </div> : <h2>{error.message}</h2>}</>
-
+    </div> : <h2>{error.message}</h2>}
+    
+    <AuthPage/>
+<LoginPage/>
+    </>
     
   );
 };
