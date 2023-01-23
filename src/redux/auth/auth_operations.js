@@ -38,3 +38,15 @@ export const login = createAsyncThunk(
       }
     }
   );
+
+  export const logout = createAsyncThunk(
+    'auth/logout',
+    async (_, { rejectWithValue }) => {
+      try {
+        await axios.post('https://connections-api.herokuapp.com/users/logout');
+        token.unset();
+      } catch (error) {
+        return rejectWithValue(error);
+      }
+    }
+  );

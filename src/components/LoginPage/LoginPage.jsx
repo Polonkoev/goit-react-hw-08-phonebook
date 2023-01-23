@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { login } from "redux/auth/auth_operations"
+import { login, logout } from "redux/auth/auth_operations"
 
 export const LoginPage = ()=>{
 
@@ -26,9 +26,14 @@ export const LoginPage = ()=>{
           default:
         }
       };
+
+const logoutHandler = ()=>{
+dispatch(logout())
+}
       
 
     return(
+      <>
         <form onSubmit={handleSubmit}>
             <label >Login:
                 <input onChange={handleChange} type="email" name="email" value={email} placeholder='Input your email...'/>
@@ -38,5 +43,7 @@ export const LoginPage = ()=>{
             </label>
             <button>LogIn</button>
         </form>
+            <button onClick={logoutHandler}>LOGOUT</button>
+            </>
     )
 }
