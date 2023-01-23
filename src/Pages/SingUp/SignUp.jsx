@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signup } from 'redux/auth/auth_operations';
 
-export const AuthPage = () => {
+export const SignUp = () => {
   let [name, setName] = useState('');
   let [email, setEmail] = useState('');
   let [password, setPassword] = useState('')

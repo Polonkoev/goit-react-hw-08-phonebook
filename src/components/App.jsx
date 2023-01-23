@@ -5,30 +5,39 @@ import ContactForm from './ContactForm/ContactForm';
 import css from './App.module.css';
 import { useSelector } from 'react-redux';
 import { SelectError } from 'redux/selectors';
-import { AuthPage } from './AuthPage/AuthPage';
-import { LoginPage } from './LoginPage/LoginPage';
-
+import { SignUp } from '../Pages/SingUp/SignUp';
+import { LoginPage } from '../Pages/LoginPage/LoginPage';
+import HomePage from '../Pages/HomePage/HomePage';
+import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
- const error = useSelector(SelectError)
-  
+  //  const error = useSelector(SelectError)
+
   return (
-    <>{error === null ? <div className={css.container}>
-    <h1 className={css.title}>Phonebook</h1>
-    
-    <ContactForm />
-    
-    <h2 className={css.contacts}>Contacts</h2>
-    
-    <Filter />
-    
-    <ContactList />
-    </div> : <h2>{error.message}</h2>}
-    
-    <AuthPage/>
-<LoginPage/>
-    </>
-    
+    <Routes>
+      <Route path="/" element={<HomePage />}>
+      <Route path="login" element={<LoginPage />} />
+      </Route>
+      <Route path="signup" element={<SignUp />} />
+
+      
+    </Routes>
+    //     <>{error === null ? <div className={css.container}>
+    //     <h1 className={css.title}>Phonebook</h1>
+
+    //     <ContactForm />
+
+    //     <h2 className={css.contacts}>Contacts</h2>
+
+    //     <Filter />
+
+    //     <ContactList />
+    //     </div> : <h2>{error.message}</h2>}
+
+    //     <AuthPage/>
+    // <LoginPage/>
+    // <HomePage/>
+    //     </>
   );
 };
 

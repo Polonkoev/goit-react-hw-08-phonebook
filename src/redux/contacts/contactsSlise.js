@@ -1,17 +1,22 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+
 import {
   fetchContacts,
   addContact,
   deleteContact,
 } from './contacts_operations';
 
+
+
 const initialState = {
   items: [],
   isLoading: false,
   error: null,
+
 };
 
 const contactsSlice = createSlice({
+  
   name: 'contacts',
   initialState,
   extraReducers: builder => {
@@ -59,6 +64,5 @@ const contactsSlice = createSlice({
       );
   },
 });
-
 
 export default contactsSlice.reducer;
