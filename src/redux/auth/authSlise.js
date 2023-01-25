@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { signup, login, logout } from './auth_operations';
+import { signup, login, logout, currentUser } from './auth_operations';
 
 const initialState = {
   user: {
@@ -9,6 +9,7 @@ const initialState = {
   token: null,
   isLoading: false,
   error: null,
+  isCurrentUser : false,
 };
 
 export const authSlice = createSlice({
@@ -36,6 +37,22 @@ export const authSlice = createSlice({
         state.error = null;
         state.token = null;
         state.user = { name: '', email: '' };
+      })
+      .addCase(currentUser.pending, state => {
+        state.isLoading =  true;
+        state.isCurrentUser = true;
+
+      })
+      .addCase(currentUser.fulfilled, (state, {payload})=>{
+        state.isLoading = false;
+        state.error = null;
+        state.user = payload;
+        state.isCurrentUser = true
+      })
+      .addCase(currentUser.rejected, (state, {payload})=>{
+        state.isLoading = false;
+        state.error = payload;
+        state.isCurrentUser = false;
       })
 
       .addMatcher(

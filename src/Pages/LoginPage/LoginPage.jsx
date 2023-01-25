@@ -27,9 +27,7 @@ export const LoginPage = ()=>{
         }
       };
 
-const logoutHandler = ()=>{
-dispatch(logout())
-}
+
       
 
     return(
@@ -43,7 +41,7 @@ dispatch(logout())
             </label>
             <button>LogIn</button>
         </form>
-            <button onClick={logoutHandler}>LOGOUT</button>
+            
             </>
     )
 }

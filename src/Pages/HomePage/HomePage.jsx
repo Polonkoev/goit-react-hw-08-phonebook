@@ -1,3 +1,5 @@
+import { LoginPage } from 'Pages/LoginPage/LoginPage';
+import { UserMenu } from 'Pages/UserMenu/UserMenu';
 import { Link, Outlet } from 'react-router-dom';
 export const HomePage = () => {
   return (
@@ -6,6 +8,8 @@ export const HomePage = () => {
      
     
       <Outlet/>
+      <LoginPage/>
+      <UserMenu/>
       </>
   );
 };
