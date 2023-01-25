@@ -16,7 +16,7 @@ import { useEffect } from 'react';
 const App = () => {
   //  const error = useSelector(SelectError)
   const dispatch = useDispatch()
-  const isCurrentUser = useSelector(SelectCurrentUser)
+  // const isCurrentUser = useSelector(SelectCurrentUser)
 
   useEffect(()=>{
     dispatch(currentUser())

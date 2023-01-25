@@ -10,7 +10,7 @@ import { SelectContacts } from 'redux/selectors';
 
 const ContactForm = () => {
   let [name, setName] = useState('');
-  let [phone, setphone] = useState('');
+  let [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ const ContactForm = () => {
         setName((name = value));
         break;
       case 'phone':
-        setphone((phone = value));
+        setNumber((number = value));
         break;
       default:
     }
@@ -46,10 +46,10 @@ const ContactForm = () => {
 
   const submitHandler = event => {
     event.preventDefault();
-    addNewContact({ name, phone });
+    addNewContact({ name, number });
 
     setName((name = ''));
-    setphone((phone = ''));
+    setNumber((number = ''));
   };
 
   return (
@@ -74,7 +74,7 @@ const ContactForm = () => {
           name="phone"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          value={phone}
+          value={number}
           onChange={handleChange}
           required
         />
