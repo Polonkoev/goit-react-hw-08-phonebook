@@ -4,6 +4,6 @@ export const SelectError = state => state.contacts.error;
 export const SelectorIsLoading = state => state.contacts.isLoading;
 export const SelectorToken = state => state.token;
 export const SelectFilter = state => state.filter.filter;
-// export const SelectName = state => state.auth.user.user.name
+export const SelectName = state => state.auth.user.name
 
 export const SelectCurrentUser = state => state.auth.isCurrentUser

@@ -1,5 +1,7 @@
+import { SignUp } from "Pages/SingUp/SignUp"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
+import { Outlet } from "react-router-dom"
 import { login, logout } from "redux/auth/auth_operations"
 
 export const LoginPage = ()=>{
@@ -32,6 +34,7 @@ export const LoginPage = ()=>{
 
     return(
       <>
+      <h2>Wellcome Guest! Please log in..</h2>
         <form onSubmit={handleSubmit}>
             <label >Login:
                 <input onChange={handleChange} type="email" name="email" value={email} placeholder='Input your email...'/>
@@ -41,7 +44,10 @@ export const LoginPage = ()=>{
             </label>
             <button>LogIn</button>
         </form>
+            <h3>or Sign up..</h3>
             
+            <Outlet/>
+            <SignUp/>
             </>
     )
 }

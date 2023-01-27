@@ -41,7 +41,7 @@ export const ContactList = () => {
       <ContactItem
    
         name={a.name}
-        number={a.phone}
+        number={a.number}
         itemKey={a.id}
         deleteContact={deleteContacts}
       />

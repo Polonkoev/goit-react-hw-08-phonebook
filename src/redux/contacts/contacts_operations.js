@@ -19,10 +19,11 @@ axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchContacts',
-  async (userData, { rejectWithValue }) => {
+  async (userData, { rejectWithValue, getState }) => {
     try {
       const { data } = await axios('/contacts', userData);
-      token.set(data.token)
+      const tokenLS = getState().auth.token;
+      token.set(tokenLS);
       return data;
     } catch (error) {
       return rejectWithValue(error);
@@ -32,7 +33,9 @@ export const fetchContacts = createAsyncThunk(
 
 export const deleteContact = createAsyncThunk(
   'contacts/deletecontact',
-  async (id, { rejectWithValue }) => {
+  async (id, { rejectWithValue, getState }) => {
+    const tokenLS = getState().auth.token;
+      token.set(tokenLS);
     try {
       await axios.delete(`/contacts/${id}`);
 
@@ -45,10 +48,12 @@ export const deleteContact = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async (userData ,contact, { rejectWithValue }) => {
+  async (contact, { rejectWithValue, getState }) => {
+    const tokenLS = getState().auth.token;
+      token.set(tokenLS);
     try {
-      const { data } = await axios.post(`/contacts`,userData, contact);
-      token.set(data.token)
+      const { data } = await axios.post(`/contacts`,contact);
+      
       return data;
     } catch (error) {
       return rejectWithValue(error);
