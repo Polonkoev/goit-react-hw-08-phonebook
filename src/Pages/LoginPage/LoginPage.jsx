@@ -44,10 +44,7 @@ export const LoginPage = ()=>{
             </label>
             <button>LogIn</button>
         </form>
-            <h3>or Sign up..</h3>
             
-            <Outlet/>
-            <SignUp/>
             </>
     )
 }

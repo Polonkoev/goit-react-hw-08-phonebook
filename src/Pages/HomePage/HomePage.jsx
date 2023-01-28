@@ -9,8 +9,8 @@ export const HomePage = () => {
   return (
     <>
       <h2>Wellcome to the PhoneBook</h2>
-      <LoginPage/>
-      <UserMenu/>
+      {/* <LoginPage/>
+      <UserMenu/> */}
       {/* <ContactForm/>
       <ContactList/> */}
      {/* <ContactsPage/> */}

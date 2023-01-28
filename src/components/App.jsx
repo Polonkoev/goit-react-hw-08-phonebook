@@ -12,11 +12,15 @@ import HomePage from '../Pages/HomePage/HomePage';
 import { Routes, Route } from 'react-router-dom';
 import { UserMenu } from 'Pages/UserMenu/UserMenu';
 import { useEffect } from 'react';
+import { Layout } from './Layout';
+import { PublicRoute } from 'HOCs/PublicRoute';
+import { PrivateRoute } from 'HOCs/PrivateRoute';
+import { ContactsPage } from 'Pages/ContactsPage/ContactsPage';
 
 const App = () => {
   //  const error = useSelector(SelectError)
   const dispatch = useDispatch()
-  // const isCurrentUser = useSelector(SelectCurrentUser)
+  const isCurrentUser = useSelector(SelectCurrentUser)
 
   useEffect(()=>{
     dispatch(currentUser())
@@ -24,35 +28,46 @@ const App = () => {
 
   return (
     <>
-    <Routes>
-      <Route path="/" element={<HomePage />}>
-      <Route path="login" element={<LoginPage />} />
-      </Route>
-      <Route path="signup" element={<SignUp />} />
-      <Route path='usermenu' element={<UserMenu/>}/>
-      
-
-      
-    </Routes>
-    
+      {!isCurrentUser && (
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route
+              index
+              element={
+                <PublicRoute>
+                  <HomePage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="contacts" //?? 
+              element={
+                <PrivateRoute>
+                  <ContactsPage/>
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="signup"
+              element={
+                <PublicRoute restricted>
+                  <SignUp />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="login"
+              element={
+                <PublicRoute restricted>
+                  <LoginPage />
+                </PublicRoute>
+              }
+            />
+          </Route>
+        </Routes>
+      )}
     </>
-    //     <>{error === null ? <div className={css.container}>
-    //     <h1 className={css.title}>Phonebook</h1>
-
-    //     <ContactForm />
-
-    //     <h2 className={css.contacts}>Contacts</h2>
-
-    //     <Filter />
-
-    //     <ContactList />
-    //     </div> : <h2>{error.message}</h2>}
-
-    //     <AuthPage/>
-    // <LoginPage/>
-    // <HomePage/>
-    //     </>
-  );
+  )
 };
 
 App.propTypes = {

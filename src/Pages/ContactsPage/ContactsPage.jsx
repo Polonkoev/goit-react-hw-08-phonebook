@@ -1,14 +1,14 @@
-// import { ContactList } from '../../components/ContactList/ContactList';
-// import { Filter } from './Filter/Filter';
-// import ContactForm from './ContactForm/ContactForm';
+import { ContactList } from '../../components/ContactList/ContactList';
+import { Filter } from '../../components/Filter/Filter';
+import ContactForm from '../../components/ContactForm/ContactForm';
 
-// export const ContactsPage = ()=>{
+export const ContactsPage = ()=>{
 
-//     return(
-//         <>
-//         <ContactForm/>
-//         <Filter/>
-//         {/* <ContactList/> */}
-//         </>
-//     )
-// }
+    return(
+        <>
+        <ContactForm/>
+        <Filter/>
+        {/* <ContactList/> */}
+        </>
+    )
+}
