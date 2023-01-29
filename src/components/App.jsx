@@ -1,33 +1,30 @@
 import PropTypes from 'prop-types';
-// import { ContactList } from './ContactList/ContactList';
-// import { Filter } from './Filter/Filter';
-// import ContactForm from './ContactForm/ContactForm';
-// import css from './App.module.css';
+
+import css from './App.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { SelectCurrentUser} from 'redux/selectors';
+import { SelectCurrentUser } from 'redux/selectors';
 import { currentUser } from 'redux/auth/auth_operations';
 import { SignUp } from '../Pages/SingUp/SignUp';
 import { LoginPage } from '../Pages/LoginPage/LoginPage';
 import HomePage from '../Pages/HomePage/HomePage';
 import { Routes, Route } from 'react-router-dom';
-import { UserMenu } from 'Pages/UserMenu/UserMenu';
 import { useEffect } from 'react';
-import { Layout } from './Layout';
+import { Layout } from '../Pages/Layout/Layout';
 import { PublicRoute } from 'HOCs/PublicRoute';
 import { PrivateRoute } from 'HOCs/PrivateRoute';
 import { ContactsPage } from 'Pages/ContactsPage/ContactsPage';
 
 const App = () => {
-  //  const error = useSelector(SelectError)
-  const dispatch = useDispatch()
-  const isCurrentUser = useSelector(SelectCurrentUser)
+  const dispatch = useDispatch();
+  const isCurrentUser = useSelector(SelectCurrentUser);
 
-  useEffect(()=>{
-    dispatch(currentUser())
-  }, [dispatch])
+  useEffect(() => {
+    dispatch(currentUser());
+  }, [dispatch]);
 
   return (
     <>
+    <div className={css.container}>
       {!isCurrentUser && (
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -40,10 +37,10 @@ const App = () => {
               }
             />
             <Route
-              path="contacts" //?? 
+              path="contacts" 
               element={
                 <PrivateRoute>
-                  <ContactsPage/>
+                  <ContactsPage />
                 </PrivateRoute>
               }
             />
@@ -66,8 +63,9 @@ const App = () => {
           </Route>
         </Routes>
       )}
+      </div>
     </>
-  )
+  );
 };
 
 App.propTypes = {

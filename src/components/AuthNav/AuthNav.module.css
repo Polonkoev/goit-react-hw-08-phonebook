@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    justify-content: start;
+}
+.list{
+    list-style: none;
+    
+}
+.listItem{
+/* margin-right: 20px; */
+}

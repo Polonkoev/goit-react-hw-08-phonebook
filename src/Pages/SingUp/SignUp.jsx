@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signup } from 'redux/auth/auth_operations';
@@ -6,14 +5,8 @@ import { signup } from 'redux/auth/auth_operations';
 export const SignUp = () => {
   let [name, setName] = useState('');
   let [email, setEmail] = useState('');
-  let [password, setPassword] = useState('')
+  let [password, setPassword] = useState('');
   const dispatch = useDispatch();
-
-// const userData = {
-//     name,
-//     email,
-//     password
-// }
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -29,12 +22,12 @@ export const SignUp = () => {
       default:
     }
   };
-  const handleSubmit = event =>{
-    event.preventDefault()
-    dispatch(signup({name, email, password}))
-  }
+  const handleSubmit = event => {
+    event.preventDefault();
+    dispatch(signup({ name, email, password }));
+  };
 
-  return(
+  return (
     <form onSubmit={handleSubmit}>
       <label>
         Name:

@@ -1,0 +1,20 @@
+.loginBtn{
+    display: flex;
+    justify-content: start;
+    margin-right: 30px;
+    align-items: center;
+}
+
+.btn{
+ 
+    background-color: rgb(228, 228, 180);
+    cursor: pointer;
+    border-radius: 4px;
+    
+    border-color: rgb(224, 196, 158);
+    margin-left: 20px;
+}
+.btn:hover{
+    background-color: rgb(168, 240, 240);
+    font-style: italic;
+}

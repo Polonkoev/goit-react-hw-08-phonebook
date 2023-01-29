@@ -8,7 +8,8 @@ export const ContactsPage = ()=>{
         <>
         <ContactForm/>
         <Filter/>
-        {/* <ContactList/> */}
+        <ContactList/>
+        
         </>
     )
 }
