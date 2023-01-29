@@ -1,4 +1,4 @@
-import {  NavLink } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 import css from './AuthNav.module.css'
 export const AuthNav = () => {
   return (
@@ -7,10 +7,10 @@ export const AuthNav = () => {
       <ul className={css.list}>
         <li className={css.listItem}>
           
-          <NavLink to="signup">Register</NavLink>
+          <Link className={css.listItem} to="signup">Register</Link>
         </li>
         <li className={css.listItem}>
-          <NavLink to="login">Login</NavLink>
+          <Link className={css.listItem} to="login">Login</Link>
         </li>
       </ul>
    </div>

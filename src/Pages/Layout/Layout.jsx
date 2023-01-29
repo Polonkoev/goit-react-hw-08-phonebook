@@ -21,7 +21,7 @@ export const Layout = () => {
   return (
     <>
       <header>
-        <Link to='/'>Home</Link>
+        <Link className={css.home} to='/'>Home</Link>
         {!token && <AuthNav />}
         {token && (
           <div className={css.loginBtn}>

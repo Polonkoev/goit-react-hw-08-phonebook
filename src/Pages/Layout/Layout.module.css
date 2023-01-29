@@ -1,8 +1,25 @@
+.home{
+    margin-left: 40px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    cursor: pointer;
+    color: rgb(43, 38, 38);
+    border-color: rgb(224, 196, 158);
+}
+
+.home:hover{
+    background-color: rgb(168, 240, 240);
+    font-style: italic;
+}
+
+
 .loginBtn{
     display: flex;
     justify-content: start;
     margin-right: 30px;
     align-items: center;
+    
 }
 
 .btn{
