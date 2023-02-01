@@ -9,7 +9,8 @@ const initialState = {
   token: null,
   isLoading: false,
   error: null,
-  isCurrentUser : false,
+  isCurrentUser: false,
+  isLoginIn: false,
 };
 
 export const authSlice = createSlice({
@@ -30,6 +31,7 @@ export const authSlice = createSlice({
         state.user = user.user;
         state.token = user.token;
         state.error = null;
+        state.isLoginIn = true;
       })
 
       .addCase(logout.fulfilled, state => {
@@ -37,22 +39,25 @@ export const authSlice = createSlice({
         state.error = null;
         state.token = null;
         state.user = { name: '', email: '' };
+        state.isLoginIn = false;
       })
       .addCase(currentUser.pending, state => {
-        state.isLoading =  true;
+        state.isLoading = true;
         state.isCurrentUser = true;
-
+        state.isLoginIn = false;
       })
-      .addCase(currentUser.fulfilled, (state, {payload})=>{
+      .addCase(currentUser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
         state.user = payload;
-        state.isCurrentUser = false
+        state.isCurrentUser = false;
+        state.isLoginIn = true;
       })
-      .addCase(currentUser.rejected, (state, {payload})=>{
+      .addCase(currentUser.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
         state.isCurrentUser = false;
+        state.isLoginIn = false;
       })
 
       .addMatcher(
@@ -60,6 +65,7 @@ export const authSlice = createSlice({
         state => {
           state.isLoading = true;
           state.error = null;
+          state.isLoginIn = false;
         }
       )
       .addMatcher(
@@ -67,6 +73,7 @@ export const authSlice = createSlice({
         (state, { payload }) => {
           state.isLoading = false;
           state.error = payload;
+          state.isLoginIn = false;
         }
       );
   },

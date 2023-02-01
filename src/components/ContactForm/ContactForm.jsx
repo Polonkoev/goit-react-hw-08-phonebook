@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/contacts_operations';
-import { useEffect } from 'react';
-import { fetchContacts } from 'redux/contacts/contacts_operations';
 
 import { SelectContacts } from 'redux/selectors';
 
@@ -13,10 +11,6 @@ const ContactForm = () => {
   let [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
 
   const contacts = useSelector(SelectContacts);
 
